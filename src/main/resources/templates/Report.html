@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org ">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+ <h1>ASSET MANAGEMENT SYSTEM</h1>
+
+    <table class="table table-hover" id="mydata">
+
+<thead>
+
+<tr>
+<th>ID</th>
+<th>ASSET TYPE</th>
+<th>BRAND</th>
+<th>DESCRIPTION</th>
+<th>STATUS</th>
+<th>CATEGORY</th>
+</tr>
+
+</thead>
+
+<tbody>
+<tr th:each="as:${asset}">
+<td th:text="${as.assetId}"></td>
+<td th:text="${as.assetType}"></td>
+<td th:text="${as.brand}"></td>
+<td th:text="${as.description}"></td>
+<td th:text="${as.status}"></td>
+<td th:text="${as.category.name}"></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+
+</body>
+</html>

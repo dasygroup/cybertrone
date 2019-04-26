@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org ">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="x-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>User Front</title>
+
+<link rel="stylesheet" type="text/css" href="/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="/bootstrap/bootstrap.css"/>
+
+<script type="text/javascript" src="/js/jquery-2.2.3.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+</head>
+<body>
+
+<div class="container-fluid">
+<div class="row main">
+<div class="panel-heading">
+<div class="panel-title text-center">
+<h1 class="title">Sign Up</h1>
+</div>
+</div>
+<div class="color"></div>
+
+<div class="form-signup">
+<form class="form-horizontal" method="POST" th:action="@{/signup}">
+
+<div class="form-group">
+<label for="firstName" class="col-sm-2 conrol-labbel">FirstName</label>
+<div class="col-sm-10">
+ <div class="input-group">
+ <input type="text" class="form-control" th:value="${user.firstName}" id="firstName" name="firstName" placeholder="Enter Firstname" required="required"/>
+ </div>
+</div>
+</div>
+
+<div class="form-group">
+<label for="lastName" class="col-sm-2 conrol-labbel">LastName</label>
+<div class="col-sm-10">
+ <div class="input-group">
+ <input type="text" class="form-control" th:value="${user.lastName}" id="lastName" placeholder="Enter LastName"  name="lastName" required="required"/>
+ </div>
+</div>
+</div>
+
+<div class="form-group">
+<label for="phone" class="col-sm-2 conrol-labbel">Phone</label>
+<div class="col-sm-10">
+ <div class="input-group">
+ <input type="text" class="form-control" th:value="${user.phone}" id="phone" name="phone" placeholder="xxxx-xxx-xxx" required="required"/>
+ </div>
+</div>
+</div>
+
+
+
+<div class="form-group">
+<label for="email" class="col-sm-2 conrol-labbel">Your Email</label><span class="bg-danger pull-right" th:if="${emailExists}">Email already Exits</span>
+<div class="col-sm-10">
+ <div class="input-group">
+ <input type="text" class="form-control" th:value="${user.email}" id="email" name="email" placeholder="Enter Email" required="required"/>
+ </div>
+</div>
+</div>
+
+<div class="form-group">
+<label for="username" class="col-sm-2 conrol-labbel">Your Username</label><span class="bg-danger " th:if="${usernameExists}">Username already Exits</span>
+<div class="col-sm-10">
+ <div class="input-group">
+ <input type="text" class="form-control" th:value="${user.username}" id="username" name="username" placeholder="Enter Username" required="required"/>
+ </div>
+</div>
+</div>
+
+
+
+<div class="form-group">
+<label for="password" class="col-sm-2 conrol-labbel">Password</label>
+<div class="col-sm-10">
+ <div class="input-group">
+ <input type="password" class="form-control" th:value="${user.password}" id="password" name="password" placeholder="Enter Password" required="required"/>
+ </div>
+  <div class="checkbox">
+<label>
+<input id="showPassword" type="checkbox" onclick="myfunction()"/>Show Password
+</label>
+</div>
+</div>
+</div>
+
+<div class="form-group">
+<button type="submit" class="btn btn-primary btn-lg  login-button">Sign Up!</button>
+</div>
+
+</form>
+<hr/>
+<a href="/" class="btn btn-info">GO BACK!!</a>
+</div>
+
+</div>
+
+</div>
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org ">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="x-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>USER FRONT</title>
+
+<link href="bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link href="bootstrap/bootstrap.css" rel="stylesheet"/>
+     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-flash-1.5.4/b-html5-1.5.4/datatables.min.css"/>
+  <!-- bootstrap theme -->
+  <link href="bootstrap/bootstrap-theme.css" rel="stylesheet"/>
+  <link href="css/dataTables.bootstrap.min.css" rel="stylesheet"/>
+  <!--external css-->
+  <!-- font icon -->
+  <link href="css/elegant-icons-style.css" rel="stylesheet" />
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <!-- Custom styles -->
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="css/style-responsive.css" rel="stylesheet" />
+    <script type="text/javascript" src="/js/jquery-2.2.3.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/asset.js"></script>
+</head>
+<body>
+
+<section id="container" class="">
+    <header class="header dark-bg">
+        <div class="toggle-nav">
+        <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+      </div>
+        <a href="index.html" class="logo">Asset Management <span class="lite">System</span></a>
+     
+    
+      
+      <div class="nav search-row" id="top_menu">
+        <!--  search form start -->
+        <ul class="nav top-menu">
+          <li>
+           
+          </li>
+        </ul>
+        <!--  search form end -->
+      </div>
+        
+        <div class="top-nav notification-row">
+        <!-- notificatoin dropdown start-->
+        <ul class="nav pull-right top-menu">
+
+          <!-- task notificatoin start -->
+          <li id="task_notificatoin_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="icon-task-l"></i>
+                            <span class="badge bg-important"></span>
+                        </a>
+            <ul class="dropdown-menu extended tasks-bar">
+             
+              <li>
+                <p class="blue">You have 6 pending letter</p>
+              </li>
+              <li>
+                <a href="#">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  
+                  
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                 
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                 
+                  
+
+                </a>
+              </li>
+              <li class="external">
+                <a href="#">See All Tasks</a>
+              </li>
+            </ul>
+          </li>
+          <!-- task notificatoin end -->
+        
+          <!-- user login dropdown start-->
+          <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                                <img alt="" src="images/DASY%201.jpg"/>
+                               
+                            </span>
+                            <span class="username" th:utext="${session.user}">Me</span>
+                            <b class="caret"></b>
+                        </a>
+            <ul class="dropdown-menu extended logout">
+             
+              <li class="eborder-top">
+                <a href="#"><i class="icon_profile"></i> My Profile</a>
+              </li>
+              <li>
+                <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
+              </li>
+              <li>
+                <a th:href="@{/logout}"><i class="icon_key_alt"></i> Log Out</a>
+              </li>
+            </ul>
+          </li>
+          <!-- user login dropdown end -->
+        </ul>
+        <!-- notificatoin dropdown end-->
+      </div>
+        
+        
+        
+        
+        
+        
+         </header>
+         <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu">
+          <li class="active">
+            <a class="" th:href="@{/userFront}">
+                          <i class="icon_house_alt"></i>
+                          <span>Dashboard</span>
+                      </a>
+          </li>
+          
+          <li>
+            <a class="" href="newStaff">
+                          <span class="glyphicon  glyphicon-user "></span>  Staff
+                      </a>
+          </li>
+          <li>
+            <a class="" th:href="@{/newAsset}">
+                         <span class="glyphicon  glyphicon-barcode "></span>   Asset
+                      </a>
+
+          </li>
+          
+          <li>
+            <a class="" th:href="@{/department}">
+                         <span class="glyphicon  glyphicon-th "></span>  Department
+                      </a>
+
+          </li>
+           
+          <li>
+            <a class="" th:href="@{/category}">
+                         <span class="glyphicon  glyphicon-tasks "></span>   Category
+                      </a>
+
+          </li>
+          
+           <li>
+            <a class="" th:href="@{/vendor}">
+                         <span class="glyphicon  glyphicon-user "></span> Vendor
+                      </a>
+
+          </li>
+
+
+          
+
+          <li class="sub-menu">
+            <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>Pages</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+            <ul class="sub">
+            
+              <li><a class="" href="@{/index}"><span>Login Page</span></a></li>
+              
+            </ul>
+          </li>
+
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>   
+     
+           <section id="main-content">
+      <section class="wrapper">
+          
+            <div class="row">
+          <div class="col-lg-12 ">
+            <div class="panel panel-primary">
+              <div class="panel panel-heading">
+                New Asset
+              </div>
+              
+              <div class="panel panel-body">
+              
+              <form th:action="@{/newAssign/save}" method="POST" class="forms">
+            
+           
+        
+          <div class="col-lg-6">
+          <div class="form-group">
+            <label for="name" class="control-label">ASSET:</label>
+            <select class="form-control" name="assetId">
+           <option th:each="d:${asset}" th:utext="${d.getAssetType()}" th:attr="value=${d.getAssetId()}"></option>
+            
+            </select>
+          </div>
+          </div>
+          
+          <div class="col-lg-6">
+          <div class="form-group">
+            <label for="name" class="control-label">STAFF:</label>
+            <select class="form-control" name="staffId">
+           <option th:each="d:${data}" th:utext="${d.getFirstName()}" th:attr="value=${d.getStaffId()}"></option>
+            
+            </select>
+          </div>
+          </div>
+          
+          
+            <div class="col-lg-3">
+          <div class="form-group">
+            <input type="submit" value="SAVE" class="btn btn-success btn-block" /> 
+              </div>
+              </div>
+              </form>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+          
+   
+   
+   
+            <table class="table table-hover" id="mydata">
+
+<thead>
+
+<tr>
+<th>ID</th>
+<th>ASSET TYPE</th>
+<th>BRAND</th>
+<th>DESCRIPTION</th>
+<th>STATUS</th>
+<th>CATEGORY</th>
+<th>ACTION</th>
+</tr>
+
+</thead>
+
+<tbody>
+<tr th:each="as:${asset}">
+<td th:text="${as.assetId}"></td>
+<td th:text="${as.assetType}"></td>
+<td th:text="${as.brand}"></td>
+<td th:text="${as.description}"></td>
+<td th:text="${as.status}"></td>
+<td th:text="${as.category.name}"></td>
+<td>
+<a  th:href="@{/newAsset/delete/(id=${as.assetId})}" class="btn btn-danger delbtn" >Delete</a>
+<a  th:href="@{/newAsset/findOne/(id=${as.assetId})}" class="btn btn-primary ebtn" >Edit</a>
+
+</td>
+</tr>
+
+</tbody>
+
+</table>
+          
+    <a th:href="@{/printReport}" class="btn btn-primary">PDF</a>      
+          
+        </section>
+        </section>
+        
+    
+        
+        
+       
+        
+        
+    </section>
+     <script src="js/js/jquery.js"></script>
+  <script src="js/js/bootstrap.min.js"></script>
+  <!-- nicescroll -->
+  <script src="js/js/jquery.scrollTo.min.js"></script>
+  <script src="js/js/jquery.nicescroll.js" type="text/javascript"></script>
+  <!--custome script for all page-->
+  <script src="js/js/scripts.js"></script>
+  
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/dataTables.bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-flash-1.5.4/b-html5-1.5.4/datatables.min.js"></script>
+  
+<script>
+$('#mydata').DataTable({
+	dom: 'Bfrtip',
+    buttons: [
+        {
+            extend: 'copyHtml5',
+            exportOptions: {
+                columns: [ 0, ':visible' ]
+            }
+        },
+        {
+            extend: 'excelHtml5',
+            exportOptions: {
+                columns: ':visible'
+            }
+        },
+        {
+            extend: 'pdfHtml5',
+            exportOptions: {
+                columns: [ 0, 1, 2, 5 ]
+            }
+        },
+        'colvis'
+    ]
+});
+</script>
+  
+
+</body>
+</html>
